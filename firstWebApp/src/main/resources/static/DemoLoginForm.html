@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+<form id="loginForm">
+    <input type="text" id="username">
+    <input type="text" id="password">
+</form>
+<button id = "register">Submit</button>
+</body>
+<script>
+    $("#register").click(function () {
+        let loginForm = {};
+        loginForm["username"] = $("#username").val();
+        loginForm["password"] = $("#password").val();
+
+        console.log(loginForm);
+        $.ajax({
+            type: "POST",
+            contentType:"application/json",
+            url:"/api/login",
+            data: JSON.stringify(loginForm),
+            // dateType: "json",
+            success: function (data) {
+                console.log(`data from BE ${data} `);
+            },
+            error: function (error){
+                console.log(error);
+            }
+        });
+
+    });
+</script>
+</html>

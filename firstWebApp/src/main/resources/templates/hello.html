@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+Lop data:
+<div>
+    <!--    data fake: khi ma object null / ko co data -> hien thi data fake-->
+    <p th:text="${lop.id}">fake id 1</p>
+    <p th:text="${lop.birthDay}">fake 2011-01-01</p>
+    <p th:text="${lop.birtHDayTime}">fake 20:15</p>
+
+    <p th:text="${lop.name}">fake jonh</p>
+</div>
+<p th:text="${lop.fullBirthDay}">fake 2011-01-01 20:30</p>
+</body>
+</html>
+Data table
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Time</th>
+        <th>Full</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="clazz : ${customClasses}">
+        <td th:text="${clazz.id}">Onions</td>
+        <td th:text="${clazz.name}">2.41</td>
+        <td th:text="${clazz.birthDay}"></td>
+        <td th:text="${clazz.birtHDayTime}"></td>
+        <td th:text="${clazz.fullBirthDay}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
